@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
     <head>
-        <title>App Name: A Coding Project by Mike Williams</title>
+        <title>REWIND: A Coding Project by Mike Williams</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,7 +22,7 @@
         <!--Nav Section-->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="img/MikeWilliams(2)-Mark.png" clas="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+                <a class="navbar-brand" href="#"><img src="img/MikeWilliams(2)-Mark.png" clas="d-inline-block align-text-top" width="30" height="24"> REWIND</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
                             <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://github.com/mikey32905">Git Repo</a>
+                            <a class="nav-link" target="_blank" href="https://github.com/mikey32905/Rewind">Git Repo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank" href="#">About</a>
@@ -52,25 +52,66 @@
         <!--Main Section-->
         <main class="flex-shrink-0">
             <div class="container py-4 px-5 mt-5">
-                <h2 class="border-1 border-bottom border-dark">The Code for APP NAME.</h2>
+                <h2 class="border-1 border-bottom border-dark">The Code for REWIND.</h2>
                 <div class="row row-cols-1 row-cols-lg-2">
                     <!--Code Embed-->
                     <!--Paste Javascript code between <code> </code>-->
                     <div class="col-lg-8">
                         <pre class="line-numbers"><code class="language-javascript">                          
-                                //Call Hello World
-                                function HelloWorld(){
-                                    alert("Hello World!!");
+                            //Get string from user (Controller)
+                            function getValue(){
+                            
+                                //sets alert section to invisible
+                                document.getElementById("alert").classList.add("invisible");
+                            
+                                let userString = document.getElementById("userString").value;
+                            
+                                let reversedString = reverseTheString(userString);
+                            
+                                displayString(reversedString);
+                            }
+                            
+                            //reverse the string (Logic)
+                            function reverseTheString(userString){
+                                let revString = [];
+                            
+                                //reverse a string using a for loop
+                                for (let i = userString.length - 1; i >= 0; i--){
+                                   revString += userString[i];
                                 }
+                            
+                                return revString;
+                            }
+                            
+                            
+                            //display string (View)
+                            function displayString(reversedString){
+                               //write message to screen 
+                               document.getElementById("message").innerHTML = `Your string reverse is: ${reversedString}`;
+                            
+                               //turn on alert.
+                               document.getElementById("alert").classList.remove("invisible");
+                            }
                         </code>
                         </pre>
                     </div>
 
                     <!--Description-->
                     <div class="col-lg-4">
-                        <p>The code is structured in one function.</p>
-                        <h5>Hello World</h5>
-                        <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                        <p>The code is structured in three function.</p>
+                        <h5>getValue</h5>
+                        <p>getValue acts as the controller for the application.  It initially turns off the alert display,
+                            gets user entered string, sends entered string to be reversed, and sends reversed string to be'
+                            displayed.
+                        </p>
+                        <h5>reverseTheString</h5>
+                        <p>reverseTheString takes an entered string and reverses it using a for/loop.  The for/loop is initially
+                            set to the length of the string minus one.  Each character is added to the revString array. 
+                        </p>
+                        <h5>displayTheString</h5>
+                        <p>displayTheString displays the reversed string to the screen via an html template.  Also, the alert display
+                            is turned on to display results.
+                        </p>
                     </div>
                 </div>
             </div>

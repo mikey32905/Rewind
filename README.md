@@ -1,2 +1,1 @@
-# JsSiteTemplate
- Site Template for JS Projects
+REWIND JS Project
